@@ -10,7 +10,7 @@
       ...args,
     ];
   
-    return require("./index.js");
+    return require("../index.js");
   }
 
   describe("cli", () => {
@@ -31,7 +31,7 @@
     it("should run the cli with no errors", async () => {
         const consoleSpy = jest.spyOn(console, "log");
 
-        await runCommand("--config", "./oas-merge-config.yml", "--test");
+        await runCommand("--config", "./fixtures/oas-merge-config.yml", "--test");
 
         expect(consoleSpy).toBeCalledWith("Merge successful!");
     });
