@@ -1,7 +1,7 @@
 ---
 inputs:
-- inputFile: "./fixtures/messaging.yml"
-- inputFile: "./fixtures/voice.yml"
-- inputFile: "./fixtures/multi-factor-auth.yml"
-- inputFile: "./fixtures/phone-number-lookup.yml"
-output: "./fixtures/bandwidth.yml"
+- inputFile: "./test/fixtures/messaging.yml"
+- inputFile: "./test/fixtures/voice.yml"
+- inputFile: "./test/fixtures/multi-factor-auth.yml"
+- inputFile: "./test/fixtures/phone-number-lookup.yml"
+output: "./test/fixtures/bandwidth.yml"
