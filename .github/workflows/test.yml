@@ -1,0 +1,11 @@
+on:
+  pull_request:
+
+jobs:
+  test-cli:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test CLI
+        run: |
+          npm i
+          npm run test
