@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  schemaVersion: v1.0.0
+  name: api-specs-combine-action-location
+  description: Links to additional entities in the api-specs-combine-action repository.
+  annotations:
+    github.com/project-slug: Bandwidth/api-specs-combine-action
+spec:
+  targets:
+    - ./component.yaml
+    # - add more components using relative filepaths here
+    # - you may also rename/move the original component.yaml file

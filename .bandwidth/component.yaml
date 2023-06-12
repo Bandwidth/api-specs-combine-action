@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  schemaVersion: v1.0.0
+  name: api-specs-combine-action
+  description: A GitHub Action that combines the Bandwidth Product API specs into one file for SDK generation.
+  annotations:
+    github.com/project-slug: Bandwidth/api-specs-combine-action
+  organization: BW
+  costCenter: UNKNOWN
+  platformType: 
+  buildPlatform: 
+spec:
+  type: GitHub Action
+  owner: github/band-swi
+  lifecycle: Prototype
+  dependsOn:
+    - resource:platform/undefined
+    - resource:cost-center/UNKNOWN
+
