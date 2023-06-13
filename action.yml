@@ -1,0 +1,21 @@
+name: API Specs Combine Action
+description: A GitHub Action that combines the Bandwidth Product API specs into one file for SDK generation.
+inputs:
+  username:
+    required: false
+    description: Github Username
+    default: DX-Bandwidth
+  token:
+    required: true
+    description: Github Token
+
+runs:
+  using: "composite"
+  steps:
+    - name: Clone and Combine Product Specs
+      run: |
+        git clone https://${{ inputs.username }}:${{ inputs.token }}@github.com/Bandwidth/api-specs
+        cd ${{ github.action_path }}
+        npm i
+        node index.js --config oas-merge-config.yml --path ${{ github.workspace }}
+      shell: bash

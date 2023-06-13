@@ -1,0 +1,18 @@
+# Test the CLI
+name: Test CLI
+
+on:
+  pull_request:
+
+jobs:
+  test-cli:
+    name: Test CLI
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Test CLI
+        run: |
+          npm i
+          npm run test
