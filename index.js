@@ -4,11 +4,11 @@ const yaml = require('js-yaml');
 const { merge, isErrorResult } = require('openapi-merge');
 const argv = require('minimist')(process.argv.slice(2));
 
-function buildSpecArray(config) {
+function buildSpecArray(config, basePath) {
   const mergeArray = [];
   for (i in config.inputs) {
     let apiSpec = yaml.load(
-      fs.readFileSync(configFile.inputs[i].inputFile, 'utf8')
+      fs.readFileSync(`${basePath}${configFile.inputs[i].inputFile}`, 'utf8')
     );
     let servers = apiSpec.servers;
 
@@ -39,8 +39,8 @@ function mergeSpecs(mergeArray) {
   }
 }
 
-function main(config) {
-  const mergeArray = buildSpecArray(config);
+function main(config, basePath) {
+  const mergeArray = buildSpecArray(config, basePath);
   const apiSpec = mergeSpecs(mergeArray).output;
 
   let info = {
@@ -61,9 +61,9 @@ function main(config) {
   fileExtension = path.extname(configFile.output);
   if( argv.t != true && argv.test != true ){
     if(fileExtension == '.json'){
-      fs.writeFileSync(configFile.output, JSON.stringify(apiSpec, null, 4), 'utf8');
+      fs.writeFileSync(`${basePath}${configFile.output}`, JSON.stringify(apiSpec, null, 4), 'utf8');
     } else if(fileExtension == '.yaml' || fileExtension == '.yml'){
-      fs.writeFileSync(configFile.output, yaml.dump(apiSpec));
+      fs.writeFileSync(`${basePath}${configFile.output}`, yaml.dump(apiSpec));
     } else {
       throw new Error('Unsupported output file type. Only `.json`, `.yaml`, and `.yml` are supported.');
     }
@@ -71,4 +71,5 @@ function main(config) {
 }
 
 const configFile = yaml.load(fs.readFileSync(argv.c || argv.config, 'utf8'));
-main(configFile);
+const basePath = argv.path;
+main(configFile, basePath);

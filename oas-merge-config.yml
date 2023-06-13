@@ -1,7 +1,7 @@
 ---
 inputs:
-- inputFile: "../../../api-specs/external/messaging.yml"
-- inputFile: "../../../api-specs/external/voice.yml"
-- inputFile: "../../../api-specs/external/multi-factor-auth.yml"
-- inputFile: "../../../api-specs/external/phone-number-lookup.yml"
-output: "../../../api-specs/bandwidth.yml"
+- inputFile: "/api-specs/external/messaging.yml"
+- inputFile: "/api-specs/external/voice.yml"
+- inputFile: "/api-specs/external/multi-factor-auth.yml"
+- inputFile: "/api-specs/external/phone-number-lookup.yml"
+output: "/api-specs/bandwidth.yml"
