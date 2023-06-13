@@ -11,10 +11,8 @@ runs:
     - name: Clone and Combine Product Specs
       run: |
         git clone https://DX-Bandwidth:${{ inputs.token }}@github.com/Bandwidth/api-specs
-        pwd
-        ls
         cd ${{ github.action_path }}
-        pwd
         npm i
         node index.js --config oas-merge-config.yml --path ${{ github.workspace }}
+        ls
       shell: bash
