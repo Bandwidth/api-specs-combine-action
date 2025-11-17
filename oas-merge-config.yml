@@ -3,6 +3,6 @@ inputs:
 - inputFile: "/api-specs/external/messaging.yml"
 - inputFile: "/api-specs/external/voice.yml"
 - inputFile: "/api-specs/external/multi-factor-auth.yml"
-- inputFile: "/api-specs/external/phone-number-lookup.yml"
+- inputFile: "/api-specs/external/phone-number-lookup-v2.yml"
 - inputFile: "/api-specs/external/toll-free-verification.yml"
 output: "/api-specs/bandwidth.yml"
